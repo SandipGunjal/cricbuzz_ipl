@@ -1,0 +1,21 @@
+<!-- dropdown-counter.component.html -->
+<!-- <div class="dropdown"> -->
+    <!-- <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+      Select Option
+    </button> -->
+    <input type="text" [(ngModel)]="selectedValue"  class="form-control dropdown-toggle" placeholder="select" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <li class="dropdown-item" *ngFor="let option of options">
+        <span>{{ option.label }}</span>
+        <div>
+
+            <button class="btn btn-danger btn-sm ms-1" (click)="decrement(option)">-</button>
+            <span class="value">{{ option.value }}</span>
+            <button class="btn btn-success btn-sm ms-2" (click)="increment(option)">+</button>
+            <button class="btn btn-primary btn-sm ms-2" (click)="selectOption(option)">Select</button>
+
+        </div>
+    </li>
+    </ul>
+  <!-- </div> -->
+  

@@ -1,0 +1,92 @@
+/* Loding annimation  */
+
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    /* justify-content: center;
+    align-items: center;
+    height: 100vh;
+    display: grid; */
+  }
+  
+  .spinner {
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #3498db;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+
+
+/* Another Lading CSS  */
+
+/* .loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cricket-ball {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #008000, #004d00);
+    position: relative;
+    animation: spin 1.5s linear infinite;
+}
+
+.cricket-ball::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 100%;
+    background-color: white;
+    transform: translate(-50%, -50%) rotate(45deg);
+    border-radius: 2px;
+}
+
+.cricket-ball::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 100%;
+    background-color: white;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    border-radius: 2px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-text {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #008000;
+} */
+
+/* HTML part  */
+
+/* <div *ngIf = "isLoding; else afterLoading"  class="loading-container">
+<div class="cricket-ball"></div>
+<div class="loading-text">Cricbuzz</div>
+</div> */
