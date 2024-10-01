@@ -9,6 +9,7 @@ import {
 } from '@angular/forms';
 import { ApiServiceService } from '../../services/api-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edit',
@@ -22,6 +23,7 @@ export class EditComponent implements OnInit {
   myForm: any;
   id: string | null = '';
   playersData: any;
+   _id: any;
 
   constructor(
     private playerApi: ApiServiceService,
@@ -79,9 +81,8 @@ export class EditComponent implements OnInit {
 
   editPlayerData(val: any) {
     console.log(val);
-    
     const players = {
-      id: this.id,
+      _id: this.id,
       name: val.pName,
       role: val.pRole,
       totalRun: val.pRun,
@@ -93,7 +94,16 @@ export class EditComponent implements OnInit {
     this.playerApi.updatePlayerData(players).subscribe((res) => {  
       console.log(res,'new update data');
       
-      alert('Update Successfully...!');
+      Swal.fire({
+        icon: 'success',
+        title: 'Player Updated Successfully.🎉',
+        // text: 'User already exists. Please try a different email.',
+        showConfirmButton: true,
+        confirmButtonText: 'OK',
+        customClass: {
+          popup: 'my-swal-popup',
+        }
+      });
       this.router.navigate(['/players']);
     });
   }

@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ApiServiceService } from '../../services/api-service.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-addplayer',
@@ -57,7 +58,14 @@ export class AddplayerComponent {
     }
     this.playerApi.addPlayerData(players).subscribe((res)=>{
       console.log(res,"New Data Added");
-      alert('New Player Added Successfully...!')
+      // alert('New Player Added Successfully...!')
+      Swal.fire({
+        icon: 'success',
+        title: 'New Player Added Successfully.✌️',
+        // text: 'User already exists. Please try a different email.',
+        showConfirmButton: true,
+        confirmButtonText: 'OK',
+      });
       this.router.navigate(['/players'])
     })
   }

@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { pipe } from 'rxjs';
 import { SearchplayerPipe } from '../../searchplayer.pipe';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-players',
   standalone: true,
@@ -30,12 +31,41 @@ export class PlayersComponent implements OnInit {
     });
   }
 
+  // deletePlayer(id: string) {
+  //   const replay = confirm('Are you sure to delete record with id ' + id + '..?');
+  //   this.apiPlayer.deletePlayers(id).subscribe(() => {
+  //     if (replay == true) {
+  //       alert(`The ${id} is deleted successfully..!`);
+  //       this.getPlayers();
+  //     }
+  //   });
+  // }
+  
   deletePlayer(id: string) {
-    const replay = confirm('Are you sure to delete record with id ' + id + '..?');
-    this.apiPlayer.deletePlayers(id).subscribe(() => {
-      if (replay == true) {
-        alert(`The ${id} is deleted successfully..!`);
-        this.getPlayers();
+    Swal.fire({
+      title: 'Are you sure?',
+      text: `Do you want to delete the record with id ${id}?`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, cancel!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.apiPlayer.deletePlayers(id).subscribe(() => {
+          Swal.fire(
+            'Deleted!',
+            `The record with id ${id} has been deleted.`,
+            'success'
+          );
+          this.getPlayers();
+        });
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire(
+          'Cancelled',
+          'The record is safe.',
+          'error'
+        );
       }
     });
   }

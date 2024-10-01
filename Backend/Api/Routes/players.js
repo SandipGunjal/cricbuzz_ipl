@@ -55,7 +55,7 @@ router.get('/:id',async(req,res)=>{
 
 // PUT (Update) the record in database.
 router.put('/:id', async(req,res)=>{
-  const id = req.params._id
+  const id = req.params.id
   console.log(id , 'players id');
   try{
     const data = await Players.findByIdAndUpdate(id,req.body)

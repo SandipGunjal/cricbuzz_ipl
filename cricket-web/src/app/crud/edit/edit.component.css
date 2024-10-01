@@ -35,4 +35,9 @@
     margin: auto;
     margin-bottom: 20px;
   }
+
+  .my-swal-popup {
+    width: 300px;  /* Adjust the width */
+    height: 200px; /* Adjust the height */
+  }
   
