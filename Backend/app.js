@@ -19,12 +19,12 @@ mongoose.connect(db).then(() => console.log( 'Database Connected' ))
 // uri = 'mongodb+srv://sandipgunjal:qZR3MB4KFBZr4zsp@cluster0.kgz5pfu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
 // mongoose.connect('mongodb+srv://sandipgunjal:ryIPnFeokAEM94xu@cluster0.kgz5pfu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
 
-app.use(cors())
-// app.use(cors(
-//     {
-//         origin : 'http://localhost:4200'
-//     }
-// ))
+// app.use(cors())
+app.use(cors(
+    {
+        origin : 'http://localhost:4200'
+    }
+))
 
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json({extended:true}))
